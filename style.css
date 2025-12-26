@@ -136,3 +136,147 @@ footer {
 .notes-card {
   outline: 3px solid rgba(255, 255, 255, 0.4);
 }
+
+.animated-header {
+  position: relative;
+  /* height: 320px; */
+  overflow: hidden;
+}
+
+
+.header-bg {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    120deg,
+    #6366f1,
+    #ec4899,
+    #22c55e,
+    #38bdf8
+  );
+  background-size: 400% 400%;
+  animation: gradientMove 4s ease infinite;
+}
+
+.gradient-layer {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    120deg,
+    #a8a9f7,
+    #ffa8d3,
+    #abffca,
+    #ade6ff
+  );
+  background-size: 400% 400%;
+  animation: gradientMove 4s ease infinite;
+  z-index: 1;
+}
+
+@keyframes gradientMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+
+.blob-layer {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.blob {
+  position: absolute;
+  width: 340px;
+  height: 340px;
+  background: rgba(255, 255, 255, 0.411);
+  /* filter: blur(80px); */
+  animation:
+    blobMorph 4s ease-in-out infinite,
+    blobDrift 5s ease-in-out infinite alternate;
+  will-change: transform, border-radius;
+}
+
+.b1 {
+  top: -120px;
+  left: -100px;
+  animation-delay: 0s, 0s;
+}
+
+.b2 {
+  bottom: -140px;
+  right: -120px;
+  animation-delay: 1s, 2s;
+}
+
+.b3 {
+  top: 35%;
+  left: 40%;
+  animation-delay: 3s, 4s;
+}
+
+@keyframes blobFloat {
+  from {
+    transform: translate(0, 0) scale(1);
+  }
+  to {
+    transform: translate(100px, -80px) scale(1.25);
+  }
+}
+
+.header-content {
+  position: relative;
+  z-index: 3;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: white;
+}
+
+.header-content h1 {
+  font-size: 3rem;
+  margin: 0;
+}
+
+.header-content p {
+  margin-top: 10px;
+  opacity: 0.95;
+}
+
+@keyframes blobMorph {
+  0% {
+    border-radius: 42% 58% 65% 35% / 40% 45% 55% 60%;
+  }
+  25% {
+    border-radius: 58% 42% 30% 70% / 55% 60% 40% 45%;
+  }
+  50% {
+    border-radius: 35% 65% 55% 45% / 60% 40% 60% 40%;
+  }
+  75% {
+    border-radius: 60% 40% 45% 55% / 35% 65% 35% 65%;
+  }
+  100% {
+    border-radius: 42% 58% 65% 35% / 40% 45% 55% 60%;
+  }
+}
+
+@keyframes blobDrift {
+  0% {
+    transform: translate(0px, 0px) scale(1);
+  }
+  33% {
+    transform: translate(120px, -80px) scale(1.15);
+  }
+  66% {
+    transform: translate(-90px, 100px) scale(0.95);
+  }
+  100% {
+    transform: translate(80px, -60px) scale(1.2);
+  }
+}
