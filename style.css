@@ -1,0 +1,138 @@
+:root {
+  --text: #0f172a;
+  --muted: #475569;
+}
+
+* {
+  box-sizing: border-box;
+  font-family: "Inter", system-ui, sans-serif;
+}
+
+body {
+  margin: 0;
+  background: linear-gradient(120deg, #fdfbfb, #ebedee);
+}
+
+header {
+  text-align: center;
+  padding: 50px 20px 30px;
+  background: linear-gradient(90deg, #d2d3ff, #ff90c7);
+}
+
+header h1 {
+  font-size: 2.6rem;
+  margin: 0;
+  background: linear-gradient(90deg, #6366f1, #ec4899);
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+header p {
+  color: var(--muted);
+  margin-top: 8px;
+}
+
+.repo-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 28px;
+  padding: 40px;
+  max-width: 1300px;
+  margin: auto;
+}
+
+.repo-card {
+  border-radius: 22px;
+  padding: 22px;
+  color: white;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.repo-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(255,255,255,0.15);
+  backdrop-filter: blur(10px);
+}
+
+.repo-card > * {
+  position: relative;
+}
+
+.repo-card:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 30px 60px rgba(0,0,0,0.25);
+}
+
+.repo-title {
+  font-size: 1.35rem;
+  margin-bottom: 8px;
+}
+
+.repo-desc {
+  font-size: 0.95rem;
+  line-height: 1.4;
+  margin-bottom: 18px;
+  opacity: 0.9;
+}
+
+.repo-links {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.repo-links a {
+  text-decoration: none;
+  padding: 10px 14px;
+  border-radius: 10px;
+  font-size: 0.9rem;
+  text-align: center;
+  background: rgba(255,255,255,0.25);
+  color: white;
+  transition: background 0.2s ease;
+}
+
+.repo-links a:hover {
+  background: rgba(255,255,255,0.4);
+}
+
+.live-url {
+  font-size: 0.75rem;
+  text-align: center;
+  word-break: break-all;
+  opacity: 0.9;
+}
+
+/* Gradient variations */
+.grad-1 { background: linear-gradient(135deg, #6366f1, #3b82f6); }
+.grad-2 { background: linear-gradient(135deg, #ec4899, #f43f5e); }
+.grad-3 { background: linear-gradient(135deg, #22c55e, #16a34a); }
+.grad-4 { background: linear-gradient(135deg, #f97316, #fb7185); }
+.grad-5 { background: linear-gradient(135deg, #14b8a6, #0ea5e9); }
+
+footer {
+  text-align: center;
+  padding: 20px;
+  color: var(--muted);
+}
+.section {
+  margin-top: 30px;
+}
+
+.section-title {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 25px;
+  background: linear-gradient(90deg, #6366f1, #ec4899);
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+/* Notes look slightly special */
+.notes-card {
+  outline: 3px solid rgba(255, 255, 255, 0.4);
+}
